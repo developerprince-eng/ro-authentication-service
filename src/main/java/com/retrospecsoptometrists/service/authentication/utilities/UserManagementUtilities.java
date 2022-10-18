@@ -32,7 +32,7 @@ public class UserManagementUtilities {
                             return true;
                         break;
 
-                    case MANAGER:
+                    case SITE_MANAGER:
                         if (!Objects.isNull(role.getOrganisationalId()) &&
                                 !Objects.isNull(role.getBranchId()) &&
                                 role.getOrganisationalId().equals("" + organisationalId) &&
@@ -68,7 +68,7 @@ public class UserManagementUtilities {
                             return isOrgAdminAuthorised(newUserRole);
                         break;
 
-                    case MANAGER:
+                    case SITE_MANAGER:
                         if (!Objects.isNull(updaterRole.getOrganisationalId()) &&
                                 !Objects.isNull(updaterRole.getBranchId()) &&
                                 updaterRole.getOrganisationalId().equals("" + organisationalId) &&
@@ -97,7 +97,7 @@ public class UserManagementUtilities {
     }
 
     private final boolean isManagerAuthorised(RolesEnum newUserRole) {
-        if (newUserRole.equals(RolesEnum.MANAGER) || newUserRole.equals(RolesEnum.GENERAL))
+        if (newUserRole.equals(RolesEnum.SITE_MANAGER) || newUserRole.equals(RolesEnum.GENERAL))
             return true;
 
         return false;
@@ -112,7 +112,7 @@ public class UserManagementUtilities {
                         return true;
                     case ADMIN:
                         return false;
-                    case MANAGER:
+                    case SITE_MANAGER:
                         return false;
                     case GENERAL:
                         return false;
@@ -136,7 +136,7 @@ public class UserManagementUtilities {
                         return false;
                     case ADMIN:
                         return true;
-                    case MANAGER:
+                    case SITE_MANAGER:
                         return false;
                     case GENERAL:
                         return false;
@@ -160,7 +160,7 @@ public class UserManagementUtilities {
                         return false;
                     case ADMIN:
                         return false;
-                    case MANAGER:
+                    case SITE_MANAGER:
                         return true;
                     case GENERAL:
                         return false;

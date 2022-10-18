@@ -1,0 +1,17 @@
+- name: update web micro service
+  hosts: retrospecs
+  remote_user: root
+  become: true
+  vars:
+    container_image: qubedprince/retrospecs-permission-service-image
+    service_name : retrospecs-permission-service
+
+  tasks:
+    - name: Pull Docker Image
+      command: docker pull '{{container_image}}'
+
+    - name: Update Service
+      command: docker service update --force --detach=false --update-parallelism=1 --update-delay=100s --update-failure-action=rollback --update-order=start-first  --image '{{container_image}}' '{{service_name }}'
+
+
+
