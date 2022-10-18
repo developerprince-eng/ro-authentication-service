@@ -1,0 +1,305 @@
+{
+	"info": {
+		"_postman_id": "bbfcaa1d-5b7b-48e9-91fc-0cee6fd23107",
+		"name": "RetrospecsOptometrists Authentication Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"developer@retrospecsoptometrists.co.zw\",\n    \"password\":\"IUX8zlfq3ZO3gvpNqB9iuZaHC0KZJ81h\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{permission_base_url}}/authenticate/login",
+					"host": [
+						"{{permission_base_url}}"
+					],
+					"path": [
+						"authenticate",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Validation",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZXZlbG9wZXJAbWVpem9uLm9yZy56dyIsInVzZXJuYW1lIjoiZGV2ZWxvcGVyQG1laXpvbi5vcmcuenciLCJlbXBsb3llZUlkIjoiZGV2ZWxvcGVyb25lIiwiZmlyc3ROYW1lIjoiUHJpbmNlIiwibGFzdE5hbWUiOiJNYXBvc2EiLCJwaG9uZU51bWJlciI6IisyNjM3ODY4MDg1MzgiLCJlbmFibGVkIjp0cnVlLCJyb2xlcyI6W3sicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwNCIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJHRU5FUkFMIiwiYnJhbmNoSWQiOiJNWi0wMDMiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwMiIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJTQUxFUyIsImJyYW5jaElkIjoiTVotMDAxIiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IkdFTkVSQUwiLCJicmFuY2hJZCI6Ik1aLTAwNyIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJHRU5FUkFMIiwiYnJhbmNoSWQiOiJNWi0wMDYiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwMSIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJTQUxFUyIsImJyYW5jaElkIjoiTVotMDAyIiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IlNBTEVTIiwiYnJhbmNoSWQiOiJNWi0wMDQiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiU0FMRVMiLCJicmFuY2hJZCI6Ik1aLTAwNiIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJHRU5FUkFMIiwiYnJhbmNoSWQiOiJNWi0wMDEiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiR0VORVJBTCIsImJyYW5jaElkIjoiTVotMDA0Iiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IkdFTkVSQUwiLCJicmFuY2hJZCI6Ik1aLTAwMiIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJTQUxFUyIsImJyYW5jaElkIjoiTVotMDA1Iiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IlNBTEVTIiwiYnJhbmNoSWQiOiJNWi0wMDciLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwNyIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJBRE1JTiIsImJyYW5jaElkIjoiTVotMDA1Iiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IkFETUlOIiwiYnJhbmNoSWQiOiJNWi0wMDMiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiU0FMRVMiLCJicmFuY2hJZCI6Ik1aLTAwMyIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJHRU5FUkFMIiwiYnJhbmNoSWQiOiJNWi0wMDUiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwNiIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn1dLCJpYXQiOjE2NDY1NTM3NjIsImV4cCI6MTY0NjY0MDE2Mn0.3Fnm33BlesWP0iBkOAS-VrgAI3Nqzkf-igOXESXNmreHYgBLustvdvE5rLPNEFckmw6C23RZwyW9HUMCXtc8CQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{permission_base_url}}/users/uservalidation",
+					"host": [
+						"{{permission_base_url}}"
+					],
+					"path": [
+						"users",
+						"uservalidation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoYXJvbGRAZ21haWwuY29tIiwidXNlcm5hbWUiOiJoYXJvbGRAZ21haWwuY29tIiwiZW1wbG95ZWVJZCI6IkVNUF8xIiwiZmlyc3ROYW1lIjoiSGFyb2xkIiwibGFzdE5hbWUiOiJTY2htaWR0IiwiZW5hYmxlZCI6dHJ1ZSwicm9sZXMiOlt7InJvbGVJZCI6Ik1BTkFHRVIiLCJicmFuY2hJZCI6IkJSLTEwMDEiLCJvcmdhbmlzYXRpb25hbElkIjoiNTQzMjEifV0sImlhdCI6MTY0NTM3MTYxMiwiZXhwIjoxNjQ1NDU4MDEyfQ.ToSYiYZtSPoojEpmhC3GaKy1XwhHQN-Yfrzz-Q73lJhw1gLkHOs2sFtYdmrTnt0GP-XkP4iA7TFoXwVBCGzddg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"emailAddress\": \"johndlamini@mailinator.com\",\n    \"password\":\"qwerty1234\",\n    \"employeeId\": \"EMP_0\",\n    \"firstName\": \"John\",\n    \"phoneNumber\":\"+263786000111\",\n    \"lastName\": \"Dlamini\",\n    \"enabled\": true,\n    \"organisationalId\": 7990,\n    \"branchId\": \"MZ-1001\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{permission_base_url}}/users/create",
+					"host": [
+						"{{permission_base_url}}"
+					],
+					"path": [
+						"users",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoYXJvbGRAZ21haWwuY29tIiwidXNlcm5hbWUiOiJoYXJvbGRAZ21haWwuY29tIiwiZW1wbG95ZWVJZCI6IkVNUF8xIiwiZmlyc3ROYW1lIjoiSGFyb2xkIiwibGFzdE5hbWUiOiJTY2htaWR0IiwiZW5hYmxlZCI6dHJ1ZSwicm9sZXMiOlt7InJvbGVJZCI6Ik1BTkFHRVIiLCJicmFuY2hJZCI6IkJSLTEwMDEiLCJvcmdhbmlzYXRpb25hbElkIjoiNTQzMjEifV0sImlhdCI6MTY0NTUyMjA4NiwiZXhwIjoxNjQ1NjA4NDg2fQ.-_srcJU7CcUFLq-XzVsmCMTegexg7ZiPgcYhVvbBBvjWGrx0cEQKm29vjwZjX9idEZ7sxcAFmg3WpSe-BsUMGw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"emailAddress\": \"johndlamini@mailinator.com\",\n    \"password\":\"test_password_123\",\n    \"employeeId\": \"EMP_3\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Dlamini\",\n    \"phoneNumber\":\"+12162557559\",\n    \"enabled\": true,\n    \"organisationalId\": 1,\n    \"branchId\": \"MZ-001\",\n    \"role\":\"ADMIN\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{permission_base_url}}/users/update",
+					"host": [
+						"{{permission_base_url}}"
+					],
+					"path": [
+						"users",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJoYXJvbGRAZ21haWwuY29tIiwidXNlcm5hbWUiOiJoYXJvbGRAZ21haWwuY29tIiwiZW1wbG95ZWVJZCI6IkVNUF8xIiwiZmlyc3ROYW1lIjoiSGFyb2xkIiwibGFzdE5hbWUiOiJTY2htaWR0IiwiZW5hYmxlZCI6dHJ1ZSwicm9sZXMiOlt7InJvbGVJZCI6Ik1BTkFHRVIiLCJicmFuY2hJZCI6IkJSLTEwMDEiLCJvcmdhbmlzYXRpb25hbElkIjoiNTQzMjEifV0sImlhdCI6MTY0NTUyMjA4NiwiZXhwIjoxNjQ1NjA4NDg2fQ.-_srcJU7CcUFLq-XzVsmCMTegexg7ZiPgcYhVvbBBvjWGrx0cEQKm29vjwZjX9idEZ7sxcAFmg3WpSe-BsUMGw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"organisationalId\": 54321,\n    \"branchId\": \"BR-1001\",\n    \"emailAddress\": \"timothy@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{permission_base_url}}/users/view",
+					"host": [
+						"{{permission_base_url}}"
+					],
+					"path": [
+						"users",
+						"view"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SELF View Profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZXZlbG9wZXJAbWVpem9uLm9yZy56dyIsInVzZXJuYW1lIjoiZGV2ZWxvcGVyQG1laXpvbi5vcmcuenciLCJlbXBsb3llZUlkIjoiZGV2ZWxvcGVyb25lIiwiZmlyc3ROYW1lIjoiUHJpbmNlIiwibGFzdE5hbWUiOiJNYXBvc2EiLCJwaG9uZU51bWJlciI6IisyNjM3ODY4MDg1MzgiLCJlbmFibGVkIjp0cnVlLCJyb2xlcyI6W3sicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwNCIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJHRU5FUkFMIiwiYnJhbmNoSWQiOiJNWi0wMDMiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwMiIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJTQUxFUyIsImJyYW5jaElkIjoiTVotMDAxIiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IkdFTkVSQUwiLCJicmFuY2hJZCI6Ik1aLTAwNyIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJHRU5FUkFMIiwiYnJhbmNoSWQiOiJNWi0wMDYiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwMSIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJTQUxFUyIsImJyYW5jaElkIjoiTVotMDAyIiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IlNBTEVTIiwiYnJhbmNoSWQiOiJNWi0wMDQiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiU0FMRVMiLCJicmFuY2hJZCI6Ik1aLTAwNiIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJHRU5FUkFMIiwiYnJhbmNoSWQiOiJNWi0wMDEiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiR0VORVJBTCIsImJyYW5jaElkIjoiTVotMDA0Iiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IkdFTkVSQUwiLCJicmFuY2hJZCI6Ik1aLTAwMiIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJTQUxFUyIsImJyYW5jaElkIjoiTVotMDA1Iiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IlNBTEVTIiwiYnJhbmNoSWQiOiJNWi0wMDciLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwNyIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJBRE1JTiIsImJyYW5jaElkIjoiTVotMDA1Iiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IkFETUlOIiwiYnJhbmNoSWQiOiJNWi0wMDMiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiU0FMRVMiLCJicmFuY2hJZCI6Ik1aLTAwMyIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJHRU5FUkFMIiwiYnJhbmNoSWQiOiJNWi0wMDUiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwNiIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn1dLCJpYXQiOjE2NDY1NTM3NjIsImV4cCI6MTY0NjY0MDE2Mn0.3Fnm33BlesWP0iBkOAS-VrgAI3Nqzkf-igOXESXNmreHYgBLustvdvE5rLPNEFckmw6C23RZwyW9HUMCXtc8CQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{permission_base_url}}/users/self/view",
+					"host": [
+						"{{permission_base_url}}"
+					],
+					"path": [
+						"users",
+						"self",
+						"view"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SELF Update User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZXZlbG9wZXJAbWVpem9uLm9yZy56dyIsInVzZXJuYW1lIjoiZGV2ZWxvcGVyQG1laXpvbi5vcmcuenciLCJlbXBsb3llZUlkIjoiZGV2ZWxvcGVyb25lIiwiZmlyc3ROYW1lIjoiUHJpbmNlIiwibGFzdE5hbWUiOiJNYXBvc2EiLCJwaG9uZU51bWJlciI6IisyNjM3ODY4MDg1MzgiLCJlbmFibGVkIjp0cnVlLCJyb2xlcyI6W3sicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwNCIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJHRU5FUkFMIiwiYnJhbmNoSWQiOiJNWi0wMDMiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwMiIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJTQUxFUyIsImJyYW5jaElkIjoiTVotMDAxIiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IkdFTkVSQUwiLCJicmFuY2hJZCI6Ik1aLTAwNyIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJHRU5FUkFMIiwiYnJhbmNoSWQiOiJNWi0wMDYiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwMSIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJTQUxFUyIsImJyYW5jaElkIjoiTVotMDAyIiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IlNBTEVTIiwiYnJhbmNoSWQiOiJNWi0wMDQiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiU0FMRVMiLCJicmFuY2hJZCI6Ik1aLTAwNiIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJHRU5FUkFMIiwiYnJhbmNoSWQiOiJNWi0wMDEiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiR0VORVJBTCIsImJyYW5jaElkIjoiTVotMDA0Iiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IkdFTkVSQUwiLCJicmFuY2hJZCI6Ik1aLTAwMiIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJTQUxFUyIsImJyYW5jaElkIjoiTVotMDA1Iiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IlNBTEVTIiwiYnJhbmNoSWQiOiJNWi0wMDciLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwNyIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJBRE1JTiIsImJyYW5jaElkIjoiTVotMDA1Iiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IkFETUlOIiwiYnJhbmNoSWQiOiJNWi0wMDMiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiU0FMRVMiLCJicmFuY2hJZCI6Ik1aLTAwMyIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJHRU5FUkFMIiwiYnJhbmNoSWQiOiJNWi0wMDUiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwNiIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn1dLCJpYXQiOjE2NDY1NTM3NjIsImV4cCI6MTY0NjY0MDE2Mn0.3Fnm33BlesWP0iBkOAS-VrgAI3Nqzkf-igOXESXNmreHYgBLustvdvE5rLPNEFckmw6C23RZwyW9HUMCXtc8CQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"employeeId\": \"EMP_1003\",\n    \"firstName\": \"Timothy\",\n    \"lastName\": \"FitzGeraldson\",\n    \"phoneNumber\": \"+12162557559\",\n    \"enabled\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{permission_base_url}}/users/self/update",
+					"host": [
+						"{{permission_base_url}}"
+					],
+					"path": [
+						"users",
+						"self",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SELF Update Credentials",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkZXZlbG9wZXJAbWVpem9uLm9yZy56dyIsInVzZXJuYW1lIjoiZGV2ZWxvcGVyQG1laXpvbi5vcmcuenciLCJlbXBsb3llZUlkIjoiZGV2ZWxvcGVyb25lIiwiZmlyc3ROYW1lIjoiUHJpbmNlIiwibGFzdE5hbWUiOiJNYXBvc2EiLCJwaG9uZU51bWJlciI6IisyNjM3ODY4MDg1MzgiLCJlbmFibGVkIjp0cnVlLCJyb2xlcyI6W3sicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwNCIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJHRU5FUkFMIiwiYnJhbmNoSWQiOiJNWi0wMDMiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwMiIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJTQUxFUyIsImJyYW5jaElkIjoiTVotMDAxIiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IkdFTkVSQUwiLCJicmFuY2hJZCI6Ik1aLTAwNyIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJHRU5FUkFMIiwiYnJhbmNoSWQiOiJNWi0wMDYiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwMSIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJTQUxFUyIsImJyYW5jaElkIjoiTVotMDAyIiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IlNBTEVTIiwiYnJhbmNoSWQiOiJNWi0wMDQiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiU0FMRVMiLCJicmFuY2hJZCI6Ik1aLTAwNiIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJHRU5FUkFMIiwiYnJhbmNoSWQiOiJNWi0wMDEiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiR0VORVJBTCIsImJyYW5jaElkIjoiTVotMDA0Iiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IkdFTkVSQUwiLCJicmFuY2hJZCI6Ik1aLTAwMiIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJTQUxFUyIsImJyYW5jaElkIjoiTVotMDA1Iiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IlNBTEVTIiwiYnJhbmNoSWQiOiJNWi0wMDciLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwNyIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJBRE1JTiIsImJyYW5jaElkIjoiTVotMDA1Iiwib3JnYW5pc2F0aW9uYWxJZCI6IjEifSx7InJvbGVJZCI6IkFETUlOIiwiYnJhbmNoSWQiOiJNWi0wMDMiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiU0FMRVMiLCJicmFuY2hJZCI6Ik1aLTAwMyIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn0seyJyb2xlSWQiOiJHRU5FUkFMIiwiYnJhbmNoSWQiOiJNWi0wMDUiLCJvcmdhbmlzYXRpb25hbElkIjoiMSJ9LHsicm9sZUlkIjoiQURNSU4iLCJicmFuY2hJZCI6Ik1aLTAwNiIsIm9yZ2FuaXNhdGlvbmFsSWQiOiIxIn1dLCJpYXQiOjE2NDY1NTM3NjIsImV4cCI6MTY0NjY0MDE2Mn0.3Fnm33BlesWP0iBkOAS-VrgAI3Nqzkf-igOXESXNmreHYgBLustvdvE5rLPNEFckmw6C23RZwyW9HUMCXtc8CQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"oldPassword\": \"123_password_test\",\n    \"newPassword\": \"test_password_123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{permission_base_url}}/users/self/update/credentials",
+					"host": [
+						"{{permission_base_url}}"
+					],
+					"path": [
+						"users",
+						"self",
+						"update",
+						"credentials"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
