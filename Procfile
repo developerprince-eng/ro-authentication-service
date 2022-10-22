@@ -1,1 +1,1 @@
-web: java -Dspring.profiles.active=staging -Dserver.port=$PORT -jar target/*.war
+web: java -Dspring.profiles.active=staging -Dserver.port=$PORT -jar target/*.jar
