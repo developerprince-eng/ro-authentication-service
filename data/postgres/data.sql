@@ -51,7 +51,10 @@ INSERT INTO public.role_map(
     (15, 'RO-003', 1, 'GENERAL'),
     (16, 'RO-001', 1, 'SYS_ADMIN'),
 	(17, 'RO-002', 1, 'SYS_ADMIN'),
-	(18, 'RO-003', 1, 'SYS_ADMIN')
+	(18, 'RO-003', 1, 'SYS_ADMIN'),
+    (19, 'RO-001', 1, 'LAB'),
+	(20, 'RO-002', 1, 'LAB'),
+	(21, 'RO-003', 1, 'LAB')
     ;
 
 INSERT INTO public.user_profile(
