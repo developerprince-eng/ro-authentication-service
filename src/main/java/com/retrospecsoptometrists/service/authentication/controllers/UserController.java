@@ -25,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "${origin.url}", allowedHeaders = "*")
 public class UserController {
 
     // Send emails to the affected user email with callBack URL + Token + security
