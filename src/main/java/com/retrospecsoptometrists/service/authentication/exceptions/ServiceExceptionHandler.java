@@ -47,7 +47,7 @@ public class ServiceExceptionHandler extends ResponseEntityExceptionHandler {
                 .errorCode(HttpStatus.BAD_REQUEST)
                 .build();
         log.error("{}", customError, ex);
-        return ResponseEntity.badRequest().body(customError);
+        return ResponseEntity.badRequest().body(customError);aB
     }
 
     @Override
@@ -141,7 +141,7 @@ public class ServiceExceptionHandler extends ResponseEntityExceptionHandler {
                 .eventTime(ZonedDateTime.now())
                 .error("Error Ocurred: Request could not be processed")
                 .errorDescription(ex.getLocalizedMessage())
-                .errorCode(HttpStatus.INTERNAL_SERVER_ERROR)
+                .errorCode(HttpStatus.FORBIDDEN)
                 .build();
         log.error("{}", customError, ex);
         return ResponseEntity.internalServerError().body(customError);
