@@ -47,7 +47,7 @@ public class ServiceExceptionHandler extends ResponseEntityExceptionHandler {
                 .errorCode(HttpStatus.BAD_REQUEST)
                 .build();
         log.error("{}", customError, ex);
-        return ResponseEntity.badRequest().body(customError);aB
+        return ResponseEntity.badRequest().body(customError);
     }
 
     @Override
