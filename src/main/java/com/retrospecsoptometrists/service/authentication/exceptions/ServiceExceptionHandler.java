@@ -144,7 +144,7 @@ public class ServiceExceptionHandler extends ResponseEntityExceptionHandler {
                 .errorCode(HttpStatus.FORBIDDEN)
                 .build();
         log.error("{}", customError, ex);
-        return ResponseEntity.internalServerError().body(customError);
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(customError);
     }
 
     @Override
