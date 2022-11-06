@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:16.0.2
 ARG PRIVATE_KEY=t7uuuGJCeWH2LFcmDKTgpt3Y4faebukr
 ARG TOKEN_LIFE=86400000
 ARG PG_DB_USER=postgres
