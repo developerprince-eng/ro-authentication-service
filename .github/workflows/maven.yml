@@ -24,3 +24,19 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml -Dspring.profiles.active=test
+
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USER }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          [ -d "/var/github" ] && echo "Directory /var/github exists." || mkdir /var/github && echo "Directory /var/github is now created."
+          [ -d "/var/github/${{REPO_NAME}}" ] && echo "Directory /var/github/${{REPO_NAME}} exists." || git clone ${{REPO_URL}}:/var/github
+          [ -d "/var/github/${{REPO_NAME}}" ] && echo "Directory /var/github/${{REPO_NAME}}." || cd /var/github/${{REPO_NAME}} && echo "Changed Directory"
+          [ -d "/var/github/${{REPO_NAME}}" ] && cd /var/github/${{REPO_NAME}} && git pull origin master | echo "Pulling Repoitory" && echo "Done Pulling" || echo "Directory does'nt exist"
+          [ -d "/var/github/${{REPO_NAME}}" ] && cd /var/github/${{REPO_NAME}}  && docker build --no-cache=true --tag ${{secretes.REGISTRY}}/${{secretes.DOCKER_IMAGE}} . | echo "Building Docker Image" && echo "Done Buildling Image" || echo "Directory does'nt exist"
+          [ -d "/var/github/${{REPO_NAME}}" ] && docker login --username=${{secrets.REGISTRY_USERNAME}} --password=${{secrets.REGISTRY_PASSWORD}} ${{secretes.REGISTRY_URL}} && docker image push${{secretes.REGISTRY}}/${{secretes.DOCKER_IMAGE}}:latest | echo "Pushing Docker Image" && echo "Done Pushing Image to registry" || echo "Directory does'nt exist"
+          [ -d "/var/github/${{REPO_NAME}}" ] && cd /var/github/${{REPO_NAME}} && kubectl apply -f deploy.yaml | echo "Deploying application" && echo "Done Deploying Kubernetes Service" || echo "Directory does'nt exist"
