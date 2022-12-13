@@ -1,0 +1,33 @@
+apiVersion: v1 # Kubernetes API version
+kind: Service # Kubernetes resource kind we are creating
+metadata: # Metadata of the resource kind we are creating
+  name: ro-authenitication-service
+spec:
+  selector:
+    app: ro-authenitication-service
+  ports:
+    - protocol: TCP
+      hostPort: 31216
+      port: 8008 # The port that the service is running on in the cluster
+
+---
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: ro-authenitication-service-service
+spec:
+  selector:
+    matchLabels:
+      app: ro-authenitication-service
+  replicas: 2 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: ro-authenitication-service
+    spec:
+      containers:
+        - name: ro-authenitication-service
+          image: developer/ro-authenitication-service-image:latest # Image that will be used to containers in the cluster
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8088 # The port that the container is running on in the cluster
