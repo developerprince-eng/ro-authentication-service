@@ -46,16 +46,39 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
+          context: .
           push: true
-          tags: '${{ secrets.REGISTRY_USERNAME}}/${{secrets.DOCKER_IMAGE}}:latest'
-          cache-from: 'type=registry,ref=${{ secrets.REGISTRY_USERNAME }}/${{secrets.DOCKER_IMAGE}}:buildcache'
-          cache-to: 'type=registry,ref=${{ secrets.REGISTRY_USERNAME}}${{secrets.DOCKER_IMAGE}}:buildcache,mode=max'
+          tags: '${{ secrets.REGISTRY}}/${{ secrets.REGISTRY_USERNAME}}/${{secrets.DOCKER_IMAGE}}:latest'
 
   deploy:
     needs: push
     runs-on: ubuntu-latest
     steps:
-    - name: Run playbook
-      uses: tomasnorre/ansible-cli-client@0.0.2
-      with:
-        command: 'ansible-playbook -i ${{secrets.HOSTS_FILE}} deploy_hosts.yaml -e "user=root" -e "rep_name=ro-recommendations-reviews-service" -e "repo_url=https://github.com/developerprince-eng/ro-recommendations-reviews-service.git"'
+      - name: deploy remotely
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            [ -d "/var/github" ] && echo "Directory /var/github exists." || mkdir /var/github && echo "Directory /var/github is now created."
+            [ -d "/var/github/${{secrets.REPO_NAME}}" ] && echo "Directory /var/github/${{secrets.REPO_NAME}} exists." || cd /var/github && git clone ${{secrets.REPO_URL}}
+            [ -d "/var/github/${{secrets.REPO_NAME}}" ] && echo "Directory /var/github/${{secrets.REPO_NAME}} exists." || docker login ${{ secrets.REGISTRY_URL }} --username ${{ secrets.REGISTRY_USERNAME }} --password ${{ secrets.REGISTRY_PASSWORD }}
+            [ -d "/var/github/${{secrets.REPO_NAME}}" ] && cd /var/github/${{secrets.REPO_NAME}} && git pull origin master | echo "Pulling Repoitory" && echo "Done Pulling" || echo "Directory does not exist"
+            cd /var/github/${{secrets.REPO_NAME}} && kubectl apply -f deploy.yaml
+
+  post:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.actor }} created commit:
+            Commit message: ${{ github.event.commits[0].message }}
+            Repository: ${{ github.repository }}
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
