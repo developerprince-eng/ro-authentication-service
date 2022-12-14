@@ -8,6 +8,13 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+env:
+  MONGOURI: mongodb+srv://retrospecs:XLteY3GscHnLyFvU@cluster0.3uaovad.mongodb.net/?retryWrites=true&w=majority
+  PG_DB_PASSWORD: Mabri2019#007
+  PG_DB_URL: db.wnppqypousbcqipwutah.supabase.co/postgres
+  PG_DB_USER: postgres
+  PRIVATE_KEY: qwertyazerty1234
+  TOKEN_LIFE: 86400
 
 jobs:
   build:
