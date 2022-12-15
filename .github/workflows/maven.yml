@@ -76,7 +76,7 @@ jobs:
             [ -d "/var/github/${{secrets.REPO_NAME}}" ] && echo "Directory /var/github/${{secrets.REPO_NAME}} exists." || cd /var/github && git clone ${{secrets.REPO_URL}}
             [ -d "/var/github/${{secrets.REPO_NAME}}" ] && echo "Directory /var/github/${{secrets.REPO_NAME}} exists." || docker login ${{ secrets.REGISTRY_URL }} --username ${{ secrets.REGISTRY_USERNAME }} --password ${{ secrets.REGISTRY_PASSWORD }}
             [ -d "/var/github/${{secrets.REPO_NAME}}" ] && cd /var/github/${{secrets.REPO_NAME}} && git pull origin master | echo "Pulling Repoitory" && echo "Done Pulling" || echo "Directory does not exist"
-            cd /var/github/${{secrets.REPO_NAME}} && kubectl apply -f deploy.yaml
+            cd /var/github/${{secrets.REPO_NAME}} && docker login ${{ secrets.REGISTRY_URL }} --username ${{ secrets.REGISTRY_USERNAME }} --password ${{ secrets.REGISTRY_PASSWORD }} && kubectl apply -f deploy.yaml
 
   post:
     needs: deploy
