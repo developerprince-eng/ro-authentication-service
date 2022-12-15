@@ -29,11 +29,11 @@ spec:
         app: ro-authenitication-service
     spec:
       imagePullSecrets:
-      - name: regcred
+      - name: retrospecoptometrists-registry-key
       containers:
         - name: ro-authenitication-service
           image: registry.developer.co.zw/developer/ro-authenitication-service:latest # Image that will be used to containers in the cluster
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 8088 # The port that the container is running on in the cluster
           envFrom:
